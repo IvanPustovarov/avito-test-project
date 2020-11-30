@@ -1,31 +1,35 @@
-import './App.css';
-import React, {useState, useEffect} from "react";
+import "./App.css";
+import React, { useState, useEffect } from "react";
 
 //components
-import MainPage from './components/MainPage';
-import NewsPage from './components/NewsPage';
+import MainPage from "./components/MainPage";
+import NewsPage from "./components/NewsPage";
 
-
-const NEWSTORIES = "https://hacker-news.firebaseio.com/v0/newstories.json?print=pretty";
+const NEW_STORIES =
+  "https://hacker-news.firebaseio.com/v0/newstories.json?print=pretty";
 
 const App = () => {
+  const [data, setData] = useState([]);
 
-  const requestOptions = {
-    method: 'GET',
-    redirect: 'follow'
+  const getStories = (data) => {
+    let requestOptions = {
+      method: "GET",
+      redirect: "follow",
+    };
+
+    fetch(NEW_STORIES, requestOptions)
+      .then((response) => response.json())
+      .then((result) => setData(result))
+      .catch((error) => console.log("error", error));
   };
-
-  fetch(NEWSTORIES, requestOptions)
-    .then(response => response.text())
-    .then(result => console.log(result))
-    .catch(error => console.log('error', error));
 
   return (
     <div className="App">
-     <MainPage/>
-     <NewsPage/>
+      {getStories()}
+      <MainPage data={data} />
+      <NewsPage />
     </div>
   );
-}
+};
 
 export default App;
