@@ -1,16 +1,31 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-const NewsForm = () => {
+const NewsForm = (props) => {
+  const [data, setData] = useState([]);
+  const story = props.elem;
+
+  const storyURL = `https://hacker-news.firebaseio.com/v0/item/${story}.json?print=pretty`;
+
+  let requestOptions = {
+    method: "GET",
+    redirect: "follow",
+  };
+  useEffect(() => {
+    async function result() {
+      await fetch(storyURL, requestOptions)
+        .then((response) => response.json())
+        .then((result) => setData(result))
+        .catch((error) => console.log("error", error));
+    }
+    result();
+  }, []);
+
   return (
-    <div>
-      <h1>title</h1>
-      <div>
-        <span>points:</span>
-        <span> author</span>
-        <span> date</span>
-      </div>
-    </div>
+    <>
+      {/* {data.map((elem, index) => (
+        <li key={index}>{elem}</li>
+      ))} */}
+    </>
   );
 };
-
 export default NewsForm;
