@@ -1,14 +1,14 @@
 import React from "react";
-import NewsForm from "./NewsForm";
+import News from "./News";
 
 const MainPage = (props) => {
   const data = props.data;
 
   return (
     <div>
-      <button>click</button>
+      <button>refresh</button>
       {data.map((elem, index) => (
-        <NewsForm elem={elem} key={index} />
+        <News elem={elem} key={index} />
       ))}
     </div>
   );

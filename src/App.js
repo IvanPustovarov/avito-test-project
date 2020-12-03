@@ -29,6 +29,7 @@ const App = () => {
     data.length = 100;
   }
 
+  // data in props MainPage is array of Id
   return (
     <div>
       <MainPage data={data} />
