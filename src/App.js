@@ -1,6 +1,6 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
-
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 //components
 import MainPage from "./components/MainPage";
 
@@ -29,10 +29,15 @@ const App = () => {
     data.length = 100;
   }
 
-  // data in props MainPage is array of Id
+  const MainPages = () => {
+    return <MainPage data={data} />;
+  };
+
   return (
     <div>
-      <MainPage data={data} />
+      <Switch>
+        <Route exact path="/" component={MainPages} />
+      </Switch>
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
@@ -8,9 +9,11 @@ import store from "./store/store";
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  <Router>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </Router>,
   rootElement
 );
 

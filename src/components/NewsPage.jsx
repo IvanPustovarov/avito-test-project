@@ -1,7 +1,24 @@
 import React from "react";
 
 const NewsPage = () => {
-  return <div>News Page</div>;
+  return (
+    <>
+      <button>back to news</button>
+      <button>refresh comment</button>
+      <h1>Title</h1>
+      <span>
+        <a href="">URL news</a>
+      </span>
+      <span>data</span>
+      <span>author</span>
+      <span>comment counter</span>
+      <li>
+        <ul>1st comment</ul>
+        <ul>2nd comment</ul>
+        <ul>3th comment</ul>
+      </li>
+    </>
+  );
 };
 
 export default NewsPage;
