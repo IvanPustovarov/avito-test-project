@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 //components
 import MainPage from "./components/MainPage";
+import NewsPage from "./components/NewsPage";
 
 const NEW_STORIES =
   "https://hacker-news.firebaseio.com/v0/newstories.json?print=pretty";
@@ -29,15 +30,13 @@ const App = () => {
     data.length = 100;
   }
 
-  const MainPages = () => {
+  const goToMainPage = () => {
     return <MainPage data={data} />;
   };
 
   return (
     <div>
-      <Switch>
-        <Route exact path="/" component={MainPages} />
-      </Switch>
+      <Route exact path="/" component={goToMainPage} />
     </div>
   );
 };

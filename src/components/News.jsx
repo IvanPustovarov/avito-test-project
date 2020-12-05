@@ -1,4 +1,11 @@
 import React, { useState, useEffect } from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  NavLink,
+} from "react-router-dom";
 
 import NewsPage from "./NewsPage";
 
@@ -57,13 +64,11 @@ const News = (props) => {
     return time;
   };
 
-  const goToNewsPage = () => {
-    return <NewsPage />;
-  };
-
   return (
     <div>
-      <h1>{story.title}</h1>
+      <NavLink to={`/newspage/` + story.id}>
+        <h1>{story.title}</h1>
+      </NavLink>
       <span>points: {story.score}</span>
       <br />
       <span>author: {story.by}</span>

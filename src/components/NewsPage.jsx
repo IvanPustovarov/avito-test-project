@@ -1,9 +1,12 @@
 import React from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-const NewsPage = () => {
+const NewsPage = (props) => {
   return (
     <>
-      <button>back to news</button>
+      <Link to="/">
+        <button>back to news</button>
+      </Link>
       <button>refresh comment</button>
       <h1>Title</h1>
       <span>
