@@ -1,9 +1,9 @@
-const backToNewsReducer = (state, action) => {
+const clickOnNewsReducer = (state = 0, action) => {
   switch (action.type) {
-    case "BACK_TO_NEWS":
+    case "CLICK_ON_NEWS":
       return state;
     default:
       return state;
   }
 };
-export default backToNewsReducer;
+export default clickOnNewsReducer;
