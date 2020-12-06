@@ -1,3 +1,7 @@
-const ON_NEWS = "CLICK_ON_NEWS";
+const onNews = () => {
+  return {
+    type: "CLICK_ON_NEWS",
+  };
+};
 
-export default ON_NEWS;
+export default onNews;
