@@ -1,13 +1,16 @@
 import React from "react";
+import PropTypes from "prop-types";
+import BackToNewsButton from "./BackToNewsButton";
+import RefreshCommentsButton from "./RefreshCommentsButton";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 const NewsPage = (props) => {
   return (
     <>
-      <Link to="/">
-        <button>back to news</button>
+      <Link to="/newspage">
+        <BackToNewsButton />
       </Link>
-      <button>refresh comment</button>
+      <RefreshCommentsButton />
       <h1>Title</h1>
       <span>
         <a href="">URL news</a>

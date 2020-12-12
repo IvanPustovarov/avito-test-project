@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  NavLink,
-} from "react-router-dom";
+import { BrowserRouter as Router, NavLink } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import backToNews from "../store/actions/backToNews";
 
 import NewsPage from "./NewsPage";
 
 const News = (props) => {
+  // const sawBack = useSelector((state) => state.backToNews);
+  const dispatch = useDispatch();
+
   const [isRenderNews, setIsRenderNews] = useState(false);
   const [story, setStory] = useState([]);
 
@@ -69,7 +68,7 @@ const News = (props) => {
       <NavLink to={`/newspage/` + story.id}>
         <h1>{story.title}</h1>
       </NavLink>
-      <span>points: {story.score}</span>
+      <span onClick={() => dispatch(backToNews())}>points: {story.score}</span>
       <br />
       <span>author: {story.by}</span>
       <br />
